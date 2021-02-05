@@ -53,7 +53,21 @@ dependencies {
 }
 ```
 
-### 2. 在 CMakeLists.txt 或 Android.mk 中增加依赖
+### 2. 指定一个或多个你需要的 ABI
+
+```Gradle
+android {
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+    }
+}
+```
+
+**如果你只使用 xUnwind 的 java 接口，请忽略以下的步骤。**
+
+### 3. 在 CMakeLists.txt 或 Android.mk 中增加依赖
 
 > CMakeLists.txt
 
@@ -74,18 +88,6 @@ LOCAL_SHARED_LIBRARIES += xunwind
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,prefab/xunwind)
-```
-
-### 3. 指定一个或多个你需要的 ABI
-
-```Gradle
-android {
-    defaultConfig {
-        ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-        }
-    }
-}
 ```
 
 ### 4. 增加打包选项
