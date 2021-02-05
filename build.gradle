@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+    }
+}
+
+allprojects {
+    repositories {
+//        mavenLocal()
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    minSdkVersion = 16
+    compileSdkVersion = 30
+    targetSdkVersion = 30
+    buildToolsVersion = '30.0.3'
+    javaVersion = JavaVersion.VERSION_1_6
+    ndkVersion = "21.4.7075529"
+    cmakeVersion = "3.10.2"
+    abiFilters = "armeabi-v7a,arm64-v8a,x86,x86_64"
+    useASAN = false
+
+    POM_GROUP_ID = "io.hexhacking.xunwind"
+    POM_ARTIFACT_ID = "xunwind-android-lib"
+    POM_VERSION_NAME = "1.0.0"
+
+    POM_NAME = "xUnwind Android Lib"
+    POM_DESCRIPTION = "xUnwind is a collection of Android native stack unwinding solutions."
+    POM_URL = "https://github.com/hexhacking/xUnwind"
+    POM_INCEPTION_YEAR = "2020"
+    POM_PACKAGING = "aar"
+
+    POM_SCM_CONNECTION = "https://github.com/hexhacking/xUnwind.git"
+
+    POM_ISSUE_SYSTEM = "github"
+    POM_ISSUE_URL = "https://github.com/hexhacking/xUnwind/issues"
+
+    POM_LICENCE_NAME = "The MIT License"
+    POM_LICENCE_URL = "https://opensource.org/licenses/MIT"
+    POM_LICENCE_DIST = "repo"
+
+    POM_DEVELOPER_ID = "HexHacking"
+    POM_DEVELOPER_NAME = "HexHacking Team"
+
+    BINTRAY_REPO = "maven"
+    BINTRAY_ORGANIZATION = "hexhacking"
+    BINTRAY_LICENCE = ['MIT']
+}
