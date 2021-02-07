@@ -8,7 +8,7 @@
 
 xUnwind 是一个安卓 native 栈回溯方案的集合。
 
-[README 中文版](README.zh-CN.md)
+[README English Version](README.md)
 
 
 ## 特征
@@ -102,7 +102,7 @@ android {
 }
 ```
 
-另一方便, 如果你是在一个 APP 工程里使用 xUnwind，你可以需要增加一些选项，用来处理重复的 libxunwind.so 文件引起的冲突。
+另一方便, 如果你是在一个 APP 工程里使用 xUnwind，你可能需要增加一些选项，用来处理重复的 libxunwind.so 文件引起的冲突。
 
 ```Gradle
 android {
@@ -112,7 +112,7 @@ android {
 }
 ```
 
-你可以参考 [xunwind-sample](xunwind_sample) 文件中的示例 app。
+你可以参考 [xunwind-sample](xunwind_sample) 文件夹中的示例 app。
 
 
 ## Native API
@@ -237,4 +237,4 @@ xUnwind 的文档使用 [Creative Commons 许可证](LICENSE-docs)。
 
 ## 历史
 
-[xCrash 2.x](https://github.com/hexhacking/xCrash/tree/4748d183c1395c54bfb760ec6c454966d52ab73f) 包含一组用于获取 backtrace 的 [方法](https://github.com/hexhacking/xCrash/tree/4748d183c1395c54bfb760ec6c454966d52ab73f/src/native/common) ，它们用于在 dumper 子进程执行失败时，在信号处理函数中直接获取 backtrace。现在，我们完善和扩展了这组方法，使它们能被用于更多的场景中。
+[xCrash 2.x](https://github.com/hexhacking/xCrash/tree/4748d183c1395c54bfb760ec6c454966d52ab73f) 包含一组用于获取 backtrace 的方法 [xcc\_unwind\_*](https://github.com/hexhacking/xCrash/tree/4748d183c1395c54bfb760ec6c454966d52ab73f/src/native/common) ，它们用于在 dumper 子进程执行失败时，在信号处理函数中直接获取 backtrace。现在，我们完善和扩展了这组方法，使它们能被用于更多的场景中。
