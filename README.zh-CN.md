@@ -102,7 +102,7 @@ android {
 }
 ```
 
-另一方便, 如果你是在一个 APP 工程里使用 xUnwind，你可能需要增加一些选项，用来处理重复的 libxunwind.so 文件引起的冲突。
+另一方面, 如果你是在一个 APP 工程里使用 xUnwind，你可能需要增加一些选项，用来处理重复的 libxunwind.so 文件引起的冲突。
 
 ```Gradle
 android {
