@@ -51,7 +51,7 @@ android {
 }
 
 dependencies {
-    implementation 'io.hexhacking.xdl:xdl-android-lib:1.0.2'
+    implementation 'io.hexhacking:xdl:1.0.4'
 }
 
 apply from: rootProject.file('gradle/check.gradle')

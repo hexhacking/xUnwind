@@ -41,17 +41,6 @@
 #include "xu_log.h"
 #include "xdl.h"
 
-__attribute__((constructor)) static void xunwind_init(void)
-{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
-#define LOG(fmt, ...) __android_log_print(ANDROID_LOG_INFO, "xunwind", fmt, ##__VA_ARGS__)
-#pragma clang diagnostic pop
-
-    if(0 != xu_cfi_init()) LOG("CFI init FAILED");
-    if(0 != xu_fp_init()) LOG("FP init FAILED");
-}
-
 void xunwind_cfi_log(pid_t pid, pid_t tid, void *context, const char *logtag, android_LogPriority priority, const char *prefix)
 {
     if(priority < ANDROID_LOG_VERBOSE || ANDROID_LOG_FATAL < priority) return;

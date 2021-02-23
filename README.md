@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)
 ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
-![](https://img.shields.io/badge/release-1.0.0-red.svg?style=flat)
+![](https://img.shields.io/badge/release-1.0.2-red.svg?style=flat)
 ![](https://img.shields.io/badge/Android-4.1%20--%2011-blue.svg?style=flat)
 ![](https://img.shields.io/badge/arch-armeabi--v7a%20%7C%20arm64--v8a%20%7C%20x86%20%7C%20x86__64-blue.svg?style=flat)
 
@@ -35,11 +35,17 @@ xUnwind is a collection of Android native stack unwinding solutions.
 
 ## Usage
 
-xUnwind uses [Prefab](https://google.github.io/prefab/) package format, which is supported by Android Gradle Plugin 4.0+.
-
-More information: [Using native dependencies](https://developer.android.com/studio/build/native-dependencies)
-
 ### 1. Add dependency in build.gradle
+
+xUnwind is published on [Maven Central](https://search.maven.org/), and uses [Prefab](https://google.github.io/prefab/) package format for [native dependencies](https://developer.android.com/studio/build/native-dependencies), which is supported by [Android Gradle Plugin 4.0+](https://developer.android.com/studio/releases/gradle-plugin?buildsystem=cmake#native-dependencies).
+
+```Gradle
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+```
 
 ```Gradle
 android {
@@ -49,7 +55,7 @@ android {
 }
 
 dependencies {
-    implementation 'io.hexhacking.xunwind:xunwind-android-lib:1.0.0'
+    implementation 'io.hexhacking:xunwind:1.0.2'
 }
 ```
 

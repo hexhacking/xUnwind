@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)
 ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
-![](https://img.shields.io/badge/release-1.0.0-red.svg?style=flat)
+![](https://img.shields.io/badge/release-1.0.2-red.svg?style=flat)
 ![](https://img.shields.io/badge/Android-4.1%20--%2011-blue.svg?style=flat)
 ![](https://img.shields.io/badge/arch-armeabi--v7a%20%7C%20arm64--v8a%20%7C%20x86%20%7C%20x86__64-blue.svg?style=flat)
 
@@ -35,11 +35,17 @@ xUnwind 是一个安卓 native 栈回溯方案的集合。
 
 ## 使用
 
-xUnwind 使用从 Android Gradle Plugin 4.0+ 开始支持的 [Prefab](https://google.github.io/prefab/) 包格式。
-
-更多信息: [使用 native 依赖项](https://developer.android.com/studio/build/native-dependencies)
-
 ### 1. 在 build.gradle 中增加依赖
+
+xUnwind 发布在 [Maven Central](https://search.maven.org/) 上。为了使用 [native 依赖项](https://developer.android.com/studio/build/native-dependencies)，xUnwind 使用了从 [Android Gradle Plugin 4.0+](https://developer.android.com/studio/releases/gradle-plugin?buildsystem=cmake#native-dependencies) 开始支持的 [Prefab](https://google.github.io/prefab/) 包格式。
+
+```Gradle
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+```
 
 ```Gradle
 android {
@@ -49,7 +55,7 @@ android {
 }
 
 dependencies {
-    implementation 'io.hexhacking.xunwind:xunwind-android-lib:1.0.0'
+    implementation 'io.hexhacking:xunwind:1.0.2'
 }
 ```
 

@@ -122,7 +122,7 @@ int xu_libcorkscrew_init(void)
     ret = 0;
 
  end:
-    dlclose(handle);
+    //dlclose(handle);
     return ret;
 }
 
