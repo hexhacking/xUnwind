@@ -59,21 +59,9 @@ dependencies {
 }
 ```
 
-### 2. Specify one or more ABI(s) you need
+### 2. Add dependency in CMakeLists.txt or Android.mk
 
-```Gradle
-android {
-    defaultConfig {
-        ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-        }
-    }
-}
-```
-
-**If you only use the java interface of xUnwind, please ignore the following steps.**
-
-### 3. Add dependency in CMakeLists.txt or Android.mk
+If you only use the java interface of xUnwind, please skip this step.
 
 > CMakeLists.txt
 
@@ -94,6 +82,18 @@ LOCAL_SHARED_LIBRARIES += xunwind
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,prefab/xunwind)
+```
+
+### 3. Specify one or more ABI(s) you need
+
+```Gradle
+android {
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+    }
+}
 ```
 
 ### 4. Add packaging options
