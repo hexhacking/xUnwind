@@ -81,12 +81,12 @@ int xu_libbacktrace_init(void)
     const char *sym = NULL;
     int ret = -1;
 
-    void *handle = xdl_open(api_level <= __ANDROID_API_L_MR1__ ? XU_LIBBACKTRACE_PATHNAME_L : XU_LIBBACKTRACE_PATHNAME_M);
+    void *handle = xdl_open(api_level <= __ANDROID_API_L_MR1__ ? XU_LIBBACKTRACE_PATHNAME_L : XU_LIBBACKTRACE_PATHNAME_M, XDL_DEFAULT);
     if(NULL == handle) return -1;
 
-    if(NULL == (xu_libbacktrace_create_ptr = (xu_libbacktrace_create_t)xdl_sym(handle, XU_LIBBACKTRACE_CREATE))) goto end;
-    if(NULL == (xu_libbacktrace_dtor_d1_ptr = (xu_libbacktrace_dtor_d1_t)xdl_sym(handle, XU_LIBBACKTRACE_DTOR_D1))) goto end;
-    if(NULL == (xu_libbacktrace_format_ptr = (xu_libbacktrace_format_t)xdl_sym(handle, XU_LIBBACKTRACE_FORMAT))) goto end;
+    if(NULL == (xu_libbacktrace_create_ptr = (xu_libbacktrace_create_t)xdl_sym(handle, XU_LIBBACKTRACE_CREATE, NULL))) goto end;
+    if(NULL == (xu_libbacktrace_dtor_d1_ptr = (xu_libbacktrace_dtor_d1_t)xdl_sym(handle, XU_LIBBACKTRACE_DTOR_D1, NULL))) goto end;
+    if(NULL == (xu_libbacktrace_format_ptr = (xu_libbacktrace_format_t)xdl_sym(handle, XU_LIBBACKTRACE_FORMAT, NULL))) goto end;
 
     if(__ANDROID_API_L__ <= api_level && api_level <= __ANDROID_API_L_MR1__)
         sym = XU_LIBBACKTRACE_LOCAL_UNWIND_L;
@@ -94,13 +94,13 @@ int xu_libbacktrace_init(void)
         sym = XU_LIBBACKTRACE_LOCAL_UNWIND_M;
     else if(__ANDROID_API_P__ <= api_level)
         sym = XU_LIBBACKTRACE_LOCAL_UNWIND_P;
-    if(NULL == (xu_libbacktrace_local_unwind_ptr = (xu_libbacktrace_unwind_t)xdl_sym(handle, sym))) goto end;
+    if(NULL == (xu_libbacktrace_local_unwind_ptr = (xu_libbacktrace_unwind_t)xdl_sym(handle, sym, NULL))) goto end;
 
     if(__ANDROID_API_L__ <= api_level && api_level <= __ANDROID_API_O_MR1__)
         sym = XU_LIBBACKTRACE_REMOTE_UNWIND_L;
     else if(__ANDROID_API_P__ <= api_level)
         sym = XU_LIBBACKTRACE_REMOTE_UNWIND_P;
-    if(NULL == (xu_libbacktrace_remote_unwind_ptr = (xu_libbacktrace_unwind_t)xdl_sym(handle, sym))) goto end;
+    if(NULL == (xu_libbacktrace_remote_unwind_ptr = (xu_libbacktrace_unwind_t)xdl_sym(handle, sym, NULL))) goto end;
 
     ret = 0;
 

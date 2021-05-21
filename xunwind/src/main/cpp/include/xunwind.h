@@ -24,7 +24,8 @@
 //
 // xUnwind version: 1.0.2
 //
-// You can always get the latest version from:
+// xUnwind is a collection of Android native stack unwinding solutions.
+// For more information, documentation, and the latest version please check:
 // https://github.com/hexhacking/xUnwind
 //
 

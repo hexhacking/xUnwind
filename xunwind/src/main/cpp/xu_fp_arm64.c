@@ -54,10 +54,10 @@ typedef struct
 
 static int xu_fp_set_sigreturn_addr(void)
 {
-    void *handle = xdl_open(XU_FP_VDSO_PATHNAME);
+    void *handle = xdl_open(XU_FP_VDSO_PATHNAME, XDL_DEFAULT);
     if(NULL == handle) return -1;
 
-    void *addr = xdl_sym(handle, XU_FP_VDSO_SIGRETURN);
+    void *addr = xdl_sym(handle, XU_FP_VDSO_SIGRETURN, NULL);
     xdl_close(handle);
     if(NULL == addr) return -1;
 

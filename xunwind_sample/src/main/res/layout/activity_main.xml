@@ -28,7 +28,7 @@
                 android:textSize="20sp"
                 android:textColor="#ffffff"
                 android:background="#555555"
-                android:text="adb logcat | grep xunwind_tag" />
+                android:text="adb logcat -s xunwind_tag" />
 
             <TextView
                 android:id="@+id/textCfiMsg"

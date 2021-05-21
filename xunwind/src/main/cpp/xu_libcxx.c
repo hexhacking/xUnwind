@@ -52,12 +52,12 @@ int xu_libcxx_init(void)
 {
     int ret = -1;
 
-    void *handle = xdl_open(XU_LIBCXX_PATHNAME);
+    void *handle = xdl_open(XU_LIBCXX_PATHNAME, XDL_DEFAULT);
     if(NULL == handle) return -1;
 
-    if(NULL == (xu_libcxx_string_copy_ptr = (xu_libcxx_string_copy_t)xdl_sym(handle, XU_LIBCXX_STRING_COPY))) goto end;
-    if(NULL == (xu_libcxx_string_at_ptr = (xu_libcxx_string_at_t)xdl_sym(handle, XU_LIBCXX_STRING_AT))) goto end;
-    if(NULL == (xu_libcxx_string_dtor_d1_ptr = (xu_libcxx_string_dtor_d1_t)xdl_sym(handle, XU_LIBCXX_STRING_DTOR_D1))) goto end;
+    if(NULL == (xu_libcxx_string_copy_ptr = (xu_libcxx_string_copy_t)xdl_sym(handle, XU_LIBCXX_STRING_COPY, NULL))) goto end;
+    if(NULL == (xu_libcxx_string_at_ptr = (xu_libcxx_string_at_t)xdl_sym(handle, XU_LIBCXX_STRING_AT, NULL))) goto end;
+    if(NULL == (xu_libcxx_string_dtor_d1_ptr = (xu_libcxx_string_dtor_d1_t)xdl_sym(handle, XU_LIBCXX_STRING_DTOR_D1, NULL))) goto end;
 
     ret = 0;
 
