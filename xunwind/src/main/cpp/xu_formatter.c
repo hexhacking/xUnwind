@@ -41,9 +41,9 @@
 
 #define XU_FORMATTER_PREFIX "%s#%02zu pc " XU_FORMATTER_ADDR "  "
 
-static int xu_formatter_maps_addr(uintptr_t pc, Dl_info *info, char *buf, size_t buf_len)
+static int xu_formatter_maps_addr(uintptr_t pc, xdl_info *info, char *buf, size_t buf_len)
 {
-    memset(info, 0, sizeof(Dl_info));
+    memset(info, 0, sizeof(xdl_info));
 
     FILE *fp = fopen("/proc/self/maps", "r");
     if(NULL == fp) return 0;
@@ -78,10 +78,10 @@ void xu_formatter_print(uintptr_t* frames, size_t frames_sz, const char *prefix,
     if(NULL == prefix) prefix = "";
 
     void *cache = NULL;
-    Dl_info info;
+    xdl_info info;
     for(size_t i = 0; i < frames_sz; i++)
     {
-        memset(&info, 0, sizeof(Dl_info));
+        memset(&info, 0, sizeof(xdl_info));
         int r = 0;
 
         if(0 != frames[i])

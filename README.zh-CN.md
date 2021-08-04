@@ -2,8 +2,8 @@
 
 ![](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)
 ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
-![](https://img.shields.io/badge/release-1.0.2-red.svg?style=flat)
-![](https://img.shields.io/badge/Android-4.1%20--%2011-blue.svg?style=flat)
+![](https://img.shields.io/badge/release-1.0.3-red.svg?style=flat)
+![](https://img.shields.io/badge/Android-4.1%20--%2012-blue.svg?style=flat)
 ![](https://img.shields.io/badge/arch-armeabi--v7a%20%7C%20arm64--v8a%20%7C%20x86%20%7C%20x86__64-blue.svg?style=flat)
 
 xUnwind 是一个安卓 native 栈回溯方案的集合。
@@ -28,8 +28,8 @@ xUnwind 是一个安卓 native 栈回溯方案的集合。
     * 指定的线程：只支持 CFI 方案。
     * 所有的线程：只支持 CFI 方案。
 * 提供 java 函数，在 java 代码中直接获取 native 调用栈。
-* 支持 Android 4.1 - 11（API level 16 - 30）。
-* 支持 armeabi-v7a, arm64-v8a, x86 和 x86_64.
+* 支持 Android 4.1 - 12（API level 16 - 31）。
+* 支持 armeabi-v7a, arm64-v8a, x86 和 x86_64。
 * 使用 MIT 许可证授权。
 
 
@@ -55,7 +55,7 @@ android {
 }
 
 dependencies {
-    implementation 'io.hexhacking:xunwind:1.0.2'
+    implementation 'io.hexhacking:xunwind:1.0.3'
 }
 ```
 

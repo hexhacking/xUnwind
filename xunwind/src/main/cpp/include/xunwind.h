@@ -22,7 +22,7 @@
 // Created by caikelun on 2020-10-21.
 
 //
-// xUnwind version: 1.0.2
+// xUnwind version: 1.0.3
 //
 // xUnwind is a collection of Android native stack unwinding solutions.
 // For more information, documentation, and the latest version please check:
