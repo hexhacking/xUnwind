@@ -40,11 +40,16 @@ android {
             minifyEnabled false
         }
     }
-    buildFeatures {
-        prefab true
+    if (!rootProject.ext.dependencyOnLocalLibrary) {
+        buildFeatures {
+            prefab true
+        }
     }
     packagingOptions {
         pickFirst '**/libxunwind.so'
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 
