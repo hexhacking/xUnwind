@@ -1,4 +1,4 @@
-// Copyright (c) 2020-present, HexHacking Team. All rights reserved.
+// Copyright (c) 2020-2021 HexHacking Team
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 // Created by caikelun on 2020-10-21.
 
 //
-// xUnwind version: 1.0.3
+// xUnwind version: 1.1.0
 //
 // xUnwind is a collection of Android native stack unwinding solutions.
 // For more information, documentation, and the latest version please check:

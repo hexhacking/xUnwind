@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)
 ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
-![](https://img.shields.io/badge/release-1.0.3-red.svg?style=flat)
+![](https://img.shields.io/badge/release-1.1.0-red.svg?style=flat)
 ![](https://img.shields.io/badge/Android-4.1%20--%2012-blue.svg?style=flat)
 ![](https://img.shields.io/badge/arch-armeabi--v7a%20%7C%20arm64--v8a%20%7C%20x86%20%7C%20x86__64-blue.svg?style=flat)
 
@@ -55,7 +55,7 @@ android {
 }
 
 dependencies {
-    implementation 'io.hexhacking:xunwind:1.0.3'
+    implementation 'io.hexhacking:xunwind:1.1.0'
 }
 ```
 
@@ -237,8 +237,6 @@ FP 和 EH 栈回溯没有对应的 java 函数。因为相对于 CFI 栈回溯�
 ## 许可证
 
 xUnwind 使用 [MIT 许可证](LICENSE)。
-
-xUnwind 的文档使用 [Creative Commons 许可证](LICENSE-docs)。
 
 
 ## 历史

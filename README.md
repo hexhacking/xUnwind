@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)
 ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
-![](https://img.shields.io/badge/release-1.0.3-red.svg?style=flat)
+![](https://img.shields.io/badge/release-1.1.0-red.svg?style=flat)
 ![](https://img.shields.io/badge/Android-4.1%20--%2012-blue.svg?style=flat)
 ![](https://img.shields.io/badge/arch-armeabi--v7a%20%7C%20arm64--v8a%20%7C%20x86%20%7C%20x86__64-blue.svg?style=flat)
 
@@ -55,7 +55,7 @@ android {
 }
 
 dependencies {
-    implementation 'io.hexhacking:xunwind:1.0.3'
+    implementation 'io.hexhacking:xunwind:1.1.0'
 }
 ```
 
@@ -237,8 +237,6 @@ FP and EH unwinding do not have corresponding java functions. Because compared t
 ## License
 
 xUnwind is MIT licensed, as found in the [LICENSE](LICENSE) file.
-
-xUnwind documentation is Creative Commons licensed, as found in the [LICENSE-docs](LICENSE-docs) file.
 
 
 ## History
