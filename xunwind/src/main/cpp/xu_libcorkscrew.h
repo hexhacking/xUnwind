@@ -27,9 +27,9 @@
 #include "xu_config.h"
 #ifdef XU_CONFIG_CFI_WITH_LIBCORKSCREW
 
+#include <stdbool.h>
 #include <stddef.h>
 #include <sys/types.h>
-#include <stdbool.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,7 +40,7 @@ int xu_libcorkscrew_init(void);
 void *xu_libcorkscrew_create(pid_t pid, pid_t tid);
 void xu_libcorkscrew_destroy(void *self);
 size_t xu_libcorkscrew_unwind(void *self, size_t num_ignore_frames, void *context);
-void xu_libcorkscrew_format(void *self, size_t frame_num, char* buf, size_t buf_cap);
+void xu_libcorkscrew_format(void *self, size_t frame_num, char *buf, size_t buf_cap);
 
 #ifdef __cplusplus
 }

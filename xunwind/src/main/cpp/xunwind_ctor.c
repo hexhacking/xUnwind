@@ -22,16 +22,16 @@
 // Created by caikelun on 2020-10-21.
 
 #include <android/log.h>
+
 #include "xu_cfi.h"
 #include "xu_fp.h"
 
-__attribute__((constructor)) static void xunwind_init(void)
-{
+__attribute__((constructor)) static void xunwind_init(void) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
 #define LOG(fmt, ...) __android_log_print(ANDROID_LOG_INFO, "xunwind", fmt, ##__VA_ARGS__)
 #pragma clang diagnostic pop
 
-    if(0 != xu_cfi_init()) LOG("CFI init FAILED");
-    if(0 != xu_fp_init()) LOG("FP init FAILED");
+  if (0 != xu_cfi_init()) LOG("CFI init FAILED");
+  if (0 != xu_fp_init()) LOG("FP init FAILED");
 }

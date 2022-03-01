@@ -26,6 +26,7 @@
 
 #include <stddef.h>
 #include <sys/types.h>
+
 #include "xu_printer.h"
 
 #ifdef __cplusplus

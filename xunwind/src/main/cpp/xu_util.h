@@ -24,10 +24,10 @@
 #ifndef IO_HEXHACKING_XUNWIND_UTIL
 #define IO_HEXHACKING_XUNWIND_UTIL
 
+#include <android/api-level.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <sys/types.h>
-#include <android/api-level.h>
 
 #ifdef __cplusplus
 extern "C" {

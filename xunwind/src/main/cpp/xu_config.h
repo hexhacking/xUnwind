@@ -24,12 +24,10 @@
 #ifndef IO_HEXHACKING_XUNWIND_CONFIG
 #define IO_HEXHACKING_XUNWIND_CONFIG
 
-
 // Do not open the log when running online.
 //
 // (Default: close)
 //#define XU_CONFIG_WITH_LOG
-
 
 // We only use libcorkscrew.so for CFI unwinding on Android 4.x with arm32/x86.
 //
@@ -38,7 +36,6 @@
 #define XU_CONFIG_CFI_WITH_LIBCORKSCREW
 #endif
 
-
 // syscall-checking is a dangerous thing.
 // It needs to read data from unknown memory addresses, which may cause a crash.
 // Unless your usage scenario really needs it, don't use it.
@@ -46,12 +43,10 @@
 // (Default: close)
 //#define XU_CONFIG_FP_CHECK_SYSCALL
 
-
 // EH unwinding may not always be necessary,
 // and removing it can reduce the file size by nearly half.
 //
 // (Default: open)
 #define XU_CONFIG_EH_ENABLE
-
 
 #endif

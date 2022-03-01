@@ -32,7 +32,7 @@ extern "C" {
 #endif
 
 int xu_fp_init(void);
-size_t xu_fp_unwind(uintptr_t* frames, size_t frames_cap, void *context);
+size_t xu_fp_unwind(uintptr_t* frames, size_t frames_cap, void* context);
 
 #ifdef __cplusplus
 }

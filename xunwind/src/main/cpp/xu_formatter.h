@@ -26,13 +26,14 @@
 
 #include <stddef.h>
 #include <stdint.h>
+
 #include "xu_printer.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void xu_formatter_print(uintptr_t* frames, size_t frames_sz, const char *prefix, xu_printer_t *printer);
+void xu_formatter_print(uintptr_t *frames, size_t frames_sz, const char *prefix, xu_printer_t *printer);
 
 #ifdef __cplusplus
 }

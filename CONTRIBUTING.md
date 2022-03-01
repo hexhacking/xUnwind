@@ -39,9 +39,8 @@ Please make sure the following is done when submitting a pull request:
 
 ## Code Style Guide
 
-1. 4 spaces for indentation rather than tabs.
-2. Follow this [checkstyle configuration](checkstyle.xml) for Java code.
-3. Follow the C code style already in place.
+1. Follow the [.clang-format](.clang-format) for C code.
+2. Follow the [checkstyle.xml](checkstyle.xml) for Java code.
 
 
 ## License

@@ -24,9 +24,10 @@
 #ifndef IO_HEXHACKING_XUNWIND_LIBBACKTRACE
 #define IO_HEXHACKING_XUNWIND_LIBBACKTRACE
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <sys/types.h>
+
 #include "xu_libcxx.h"
 
 #ifdef __cplusplus
@@ -34,7 +35,7 @@ extern "C" {
 #endif
 
 #define XU_LIBBACKTRACE_CURRENT_PROCESS (-1)
-#define XU_LIBBACKTRACE_CURRENT_THREAD (-1)
+#define XU_LIBBACKTRACE_CURRENT_THREAD  (-1)
 
 int xu_libbacktrace_init(void);
 

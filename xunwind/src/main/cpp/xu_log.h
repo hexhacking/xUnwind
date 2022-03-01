@@ -25,6 +25,7 @@
 #define IO_HEXHACKING_XUNWIND_LOG
 
 #include <stdarg.h>
+
 #include "xu_config.h"
 
 #ifdef XU_CONFIG_WITH_LOG

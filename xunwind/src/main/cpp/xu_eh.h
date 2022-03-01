@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-size_t xu_eh_unwind(uintptr_t* frames, size_t frames_cap, void *context);
+size_t xu_eh_unwind(uintptr_t* frames, size_t frames_cap, void* context);
 
 #ifdef __cplusplus
 }

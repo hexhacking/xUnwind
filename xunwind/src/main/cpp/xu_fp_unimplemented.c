@@ -25,17 +25,16 @@
 
 #include <stddef.h>
 #include <stdint.h>
+
 #include "xu_fp.h"
 
-int xu_fp_init(void)
-{
-    return 0;
+int xu_fp_init(void) {
+  return 0;
 }
 
-size_t xu_fp_unwind(uintptr_t* frames, size_t frames_cap, void *context)
-{
-    (void)frames, (void)frames_cap, (void)context;
-    return 0;
+size_t xu_fp_unwind(uintptr_t* frames, size_t frames_cap, void* context) {
+  (void)frames, (void)frames_cap, (void)context;
+  return 0;
 }
 
 #else

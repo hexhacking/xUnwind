@@ -21,98 +21,94 @@
 
 // Created by caikelun on 2020-10-21.
 
-#include <stddef.h>
+#include "xunwind.h"
+
+#include <android/log.h>
+#include <inttypes.h>
+#include <pthread.h>
 #include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
-#include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
-#include <pthread.h>
-#include <inttypes.h>
-#include <android/log.h>
-#include "xunwind.h"
-#include "xu_cfi.h"
-#include "xu_fp.h"
-#include "xu_eh.h"
-#include "xu_printer.h"
-#include "xu_formatter.h"
-#include "xu_util.h"
-#include "xu_log.h"
+
 #include "xdl.h"
+#include "xu_cfi.h"
+#include "xu_eh.h"
+#include "xu_formatter.h"
+#include "xu_fp.h"
+#include "xu_log.h"
+#include "xu_printer.h"
+#include "xu_util.h"
 
-void xunwind_cfi_log(pid_t pid, pid_t tid, void *context, const char *logtag, android_LogPriority priority, const char *prefix)
-{
-    if(priority < ANDROID_LOG_VERBOSE || ANDROID_LOG_FATAL < priority) return;
+void xunwind_cfi_log(pid_t pid, pid_t tid, void *context, const char *logtag, android_LogPriority priority,
+                     const char *prefix) {
+  if (priority < ANDROID_LOG_VERBOSE || ANDROID_LOG_FATAL < priority) return;
 
-    if(0 != xu_cfi_init()) return;
+  if (0 != xu_cfi_init()) return;
 
-    xu_printer_t printer;
-    xu_printer_init_log(&printer, logtag, priority);
+  xu_printer_t printer;
+  xu_printer_init_log(&printer, logtag, priority);
 
-    xu_cfi_print(pid, tid, context, prefix, &printer);
+  xu_cfi_print(pid, tid, context, prefix, &printer);
 }
 
-void xunwind_cfi_dump(pid_t pid, pid_t tid, void *context, int fd, const char *prefix)
-{
-    if(fd < 0) return;
+void xunwind_cfi_dump(pid_t pid, pid_t tid, void *context, int fd, const char *prefix) {
+  if (fd < 0) return;
 
-    if(0 != xu_cfi_init()) return;
+  if (0 != xu_cfi_init()) return;
 
-    xu_printer_t printer;
-    xu_printer_init_dump(&printer, fd);
+  xu_printer_t printer;
+  xu_printer_init_dump(&printer, fd);
 
-    xu_cfi_print(pid, tid, context, prefix, &printer);
+  xu_cfi_print(pid, tid, context, prefix, &printer);
 }
 
-char *xunwind_cfi_get(pid_t pid, pid_t tid, void *context, const char *prefix)
-{
-    if(0 != xu_cfi_init()) return NULL;
+char *xunwind_cfi_get(pid_t pid, pid_t tid, void *context, const char *prefix) {
+  if (0 != xu_cfi_init()) return NULL;
 
-    xu_printer_t printer;
-    xu_printer_init_get(&printer);
+  xu_printer_t printer;
+  xu_printer_init_get(&printer);
 
-    xu_cfi_print(pid, tid, context, prefix, &printer);
-    return xu_printer_get(&printer);
+  xu_cfi_print(pid, tid, context, prefix, &printer);
+  return xu_printer_get(&printer);
 }
 
-size_t xunwind_fp_unwind(uintptr_t* frames, size_t frames_cap, void *context)
-{
-    if(0 != xu_fp_init()) return 0;
+size_t xunwind_fp_unwind(uintptr_t *frames, size_t frames_cap, void *context) {
+  if (0 != xu_fp_init()) return 0;
 
-    return xu_fp_unwind(frames, frames_cap, context);
+  return xu_fp_unwind(frames, frames_cap, context);
 }
 
-size_t xunwind_eh_unwind(uintptr_t* frames, size_t frames_cap, void *context)
-{
-    return xu_eh_unwind(frames, frames_cap, context);
+size_t xunwind_eh_unwind(uintptr_t *frames, size_t frames_cap, void *context) {
+  return xu_eh_unwind(frames, frames_cap, context);
 }
 
-void xunwind_frames_log(uintptr_t* frames, size_t frames_sz, const char *logtag, android_LogPriority priority, const char *prefix)
-{
-    if(priority < ANDROID_LOG_VERBOSE || ANDROID_LOG_FATAL < priority) return;
+void xunwind_frames_log(uintptr_t *frames, size_t frames_sz, const char *logtag, android_LogPriority priority,
+                        const char *prefix) {
+  if (priority < ANDROID_LOG_VERBOSE || ANDROID_LOG_FATAL < priority) return;
 
-    xu_printer_t printer;
-    xu_printer_init_log(&printer, logtag, priority);
+  xu_printer_t printer;
+  xu_printer_init_log(&printer, logtag, priority);
 
-    xu_formatter_print(frames, frames_sz, prefix, &printer);
+  xu_formatter_print(frames, frames_sz, prefix, &printer);
 }
 
-void xunwind_frames_dump(uintptr_t* frames, size_t frames_sz, int fd, const char *prefix)
-{
-    if(fd < 0) return;
+void xunwind_frames_dump(uintptr_t *frames, size_t frames_sz, int fd, const char *prefix) {
+  if (fd < 0) return;
 
-    xu_printer_t printer;
-    xu_printer_init_dump(&printer, fd);
+  xu_printer_t printer;
+  xu_printer_init_dump(&printer, fd);
 
-    xu_formatter_print(frames, frames_sz, prefix, &printer);
+  xu_formatter_print(frames, frames_sz, prefix, &printer);
 }
 
-char *xunwind_frames_get(uintptr_t* frames, size_t frames_sz, const char *prefix)
-{
-    xu_printer_t printer;
-    xu_printer_init_get(&printer);
+char *xunwind_frames_get(uintptr_t *frames, size_t frames_sz, const char *prefix) {
+  xu_printer_t printer;
+  xu_printer_init_get(&printer);
 
-    xu_formatter_print(frames, frames_sz, prefix, &printer);
-    return xu_printer_get(&printer);
+  xu_formatter_print(frames, frames_sz, prefix, &printer);
+  return xu_printer_get(&printer);
 }

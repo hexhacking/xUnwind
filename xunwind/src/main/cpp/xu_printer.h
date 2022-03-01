@@ -24,9 +24,9 @@
 #ifndef IO_HEXHACKING_XUNWIND_PRINTER
 #define IO_HEXHACKING_XUNWIND_PRINTER
 
+#include <android/log.h>
 #include <stddef.h>
 #include <sys/types.h>
-#include <android/log.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,30 +38,25 @@ extern "C" {
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpadded"
-typedef struct
-{
-    int type;
+typedef struct {
+  int type;
 
-    union
-    {
-        struct
-        {
-            const char *logtag;
-            int priority;
-        } log;
+  union {
+    struct {
+      const char *logtag;
+      int priority;
+    } log;
 
-        struct
-        {
-            int fd;
-        } dump;
+    struct {
+      int fd;
+    } dump;
 
-        struct
-        {
-            char *buf;
-            size_t buf_cap;
-            size_t buf_sz;
-        } get;
-    } data;
+    struct {
+      char *buf;
+      size_t buf_cap;
+      size_t buf_sz;
+    } get;
+  } data;
 } xu_printer_t;
 #pragma clang diagnostic pop
 

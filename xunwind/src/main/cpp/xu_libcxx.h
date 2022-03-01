@@ -30,9 +30,8 @@
 extern "C" {
 #endif
 
-typedef struct
-{
-    size_t placeholder[4];
+typedef struct {
+  size_t placeholder[4];
 } xu_libcxx_string_t;
 
 int xu_libcxx_init(void);

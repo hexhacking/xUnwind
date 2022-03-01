@@ -32,29 +32,31 @@
 #ifndef IO_HEXHACKING_XUNWIND
 #define IO_HEXHACKING_XUNWIND
 
+#include <android/log.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <sys/types.h>
-#include <android/log.h>
 
 #define XUNWIND_CURRENT_PROCESS (-1)
-#define XUNWIND_CURRENT_THREAD (-1)
-#define XUNWIND_ALL_THREADS (-2)
+#define XUNWIND_CURRENT_THREAD  (-1)
+#define XUNWIND_ALL_THREADS     (-2)
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void xunwind_cfi_log(pid_t pid, pid_t tid, void *context, const char *logtag, android_LogPriority priority, const char *prefix);
+void xunwind_cfi_log(pid_t pid, pid_t tid, void *context, const char *logtag, android_LogPriority priority,
+                     const char *prefix);
 void xunwind_cfi_dump(pid_t pid, pid_t tid, void *context, int fd, const char *prefix);
 char *xunwind_cfi_get(pid_t pid, pid_t tid, void *context, const char *prefix);
 
-size_t xunwind_fp_unwind(uintptr_t* frames, size_t frames_cap, void *context);
-size_t xunwind_eh_unwind(uintptr_t* frames, size_t frames_cap, void *context);
+size_t xunwind_fp_unwind(uintptr_t *frames, size_t frames_cap, void *context);
+size_t xunwind_eh_unwind(uintptr_t *frames, size_t frames_cap, void *context);
 
-void xunwind_frames_log(uintptr_t* frames, size_t frames_sz, const char *logtag, android_LogPriority priority, const char *prefix);
-void xunwind_frames_dump(uintptr_t* frames, size_t frames_sz, int fd, const char *prefix);
-char *xunwind_frames_get(uintptr_t* frames, size_t frames_sz, const char *prefix);
+void xunwind_frames_log(uintptr_t *frames, size_t frames_sz, const char *logtag, android_LogPriority priority,
+                        const char *prefix);
+void xunwind_frames_dump(uintptr_t *frames, size_t frames_sz, int fd, const char *prefix);
+char *xunwind_frames_get(uintptr_t *frames, size_t frames_sz, const char *prefix);
 
 #ifdef __cplusplus
 }
