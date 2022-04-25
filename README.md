@@ -214,19 +214,11 @@ All native CFI unwinding capabilities have corresponding java functions. They ca
 FP and EH unwinding do not have corresponding java functions. Because compared to CFI unwinding, their main advantage is faster execution speed (but the backtrace is not as complete as CFI unwinding), so they are always only used in native code. If you are a java programmer, just use the CFI unwinding functions here.
 
 
-## Official Repositories
-
-* https://github.com/hexhacking/xUnwind
-* https://gitlab.com/hexhacking/xUnwind
-* https://gitee.com/hexhacking/xUnwind
-
-
 ## Support
 
-* Check the [xunwind-sample](xunwind_sample).
-* Communicate on [GitHub issues](https://github.com/hexhacking/xUnwind/issues).
-* Email: <a href="mailto:caikelun@gmail.com">caikelun@gmail.com</a>
-* QQ group: 603635869
+* [GitHub Issues](https://github.com/hexhacking/xUnwind/issues)
+* [GitHub Discussions](https://github.com/hexhacking/xUnwind/discussions)
+* [Telegram Public Group](https://t.me/android_native_geeks)
 
 
 ## Contributing

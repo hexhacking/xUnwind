@@ -214,19 +214,11 @@ public static String getRemoteAllThread(int pid, String prefix);
 FP 和 EH 栈回溯没有对应的 java 函数。因为相对于 CFI 栈回溯，它们的主要优势是执行速度更快（但是 backtrace 并不像 CFI 栈回溯那样完整），所以它们总是只在 native 代码里使用。如果你是 java 程序员，只使用这里的 CFI 栈回溯就可以了。
 
 
-## 官方仓库
-
-* https://github.com/hexhacking/xUnwind
-* https://gitlab.com/hexhacking/xUnwind
-* https://gitee.com/hexhacking/xUnwind
-
-
 ## 技术支持
 
-* 查看 [xunwind-sample](xunwind_sample)。
-* 在 [GitHub issues](https://github.com/hexhacking/xUnwind/issues) 交流。
-* 邮件：<a href="mailto:caikelun@gmail.com">caikelun@gmail.com</a>
-* QQ 群：603635869
+* [GitHub Issues](https://github.com/hexhacking/xUnwind/issues)
+* [GitHub Discussions](https://github.com/hexhacking/xUnwind/discussions)
+* [Telegram Public Group](https://t.me/android_native_geeks)
 
 
 ## 贡献
