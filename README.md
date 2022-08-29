@@ -2,8 +2,8 @@
 
 ![](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)
 ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
-![](https://img.shields.io/badge/release-1.1.0-red.svg?style=flat)
-![](https://img.shields.io/badge/Android-4.1%20--%2012-blue.svg?style=flat)
+![](https://img.shields.io/badge/release-1.1.1-red.svg?style=flat)
+![](https://img.shields.io/badge/Android-4.1%20--%2013-blue.svg?style=flat)
 ![](https://img.shields.io/badge/arch-armeabi--v7a%20%7C%20arm64--v8a%20%7C%20x86%20%7C%20x86__64-blue.svg?style=flat)
 
 xUnwind is a collection of Android native stack unwinding solutions.
@@ -28,7 +28,7 @@ xUnwind is a collection of Android native stack unwinding solutions.
     * Specified thread: CFI only.
     * All threads: CFI only.
 * Provide java method to get native backtrace directly in java code.
-* Support Android 4.1 - 12 (API level 16 - 31).
+* Support Android 4.1 - 13 (API level 16 - 33).
 * Support armeabi-v7a, arm64-v8a, x86 and x86_64.
 * MIT licensed.
 
@@ -55,7 +55,7 @@ android {
 }
 
 dependencies {
-    implementation 'io.hexhacking:xunwind:1.1.0'
+    implementation 'io.hexhacking:xunwind:1.1.1'
 }
 ```
 

@@ -1,12 +1,12 @@
-cmake_minimum_required(VERSION 3.18.1)
+cmake_minimum_required(VERSION 3.22.1)
 project(xunwind)
 
 find_package(xdl REQUIRED CONFIG)
 
 file(GLOB XUNWIND_SRC *.c)
 add_library(xunwind SHARED ${XUNWIND_SRC})
-target_compile_features(xunwind PUBLIC c_std_11)
-target_compile_options(xunwind PUBLIC -Weverything -Werror)
+target_compile_features(xunwind PUBLIC c_std_17)
+target_compile_options(xunwind PUBLIC -std=c17 -Weverything -Werror)
 target_include_directories(xunwind PUBLIC include .)
 target_link_libraries(xunwind xdl::xdl log)
 
