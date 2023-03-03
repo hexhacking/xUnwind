@@ -1,3 +1,3 @@
--keep class io.hexhacking.xunwind.XUnwind {
+-keep class io.github.hexhacking.xunwind.XUnwind {
     native <methods>;
 }

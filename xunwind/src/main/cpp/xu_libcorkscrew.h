@@ -1,4 +1,4 @@
-// Copyright (c) 2020-2021 HexHacking Team
+// Copyright (c) 2020-2023 HexHacking Team
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,8 +21,8 @@
 
 // Created by caikelun on 2020-10-21.
 
-#ifndef IO_HEXHACKING_XUNWIND_LIBCORKSCREW
-#define IO_HEXHACKING_XUNWIND_LIBCORKSCREW
+#ifndef IO_GITHUB_HEXHACKING_XUNWIND_LIBCORKSCREW
+#define IO_GITHUB_HEXHACKING_XUNWIND_LIBCORKSCREW
 
 #include "xu_config.h"
 #ifdef XU_CONFIG_CFI_WITH_LIBCORKSCREW

@@ -1,4 +1,4 @@
-// Copyright (c) 2020-2021 HexHacking Team
+// Copyright (c) 2020-2023 HexHacking Team
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -43,8 +43,8 @@
 
 #define XU_FORMATTER_PREFIX "%s#%02zu pc " XU_FORMATTER_ADDR "  "
 
-static int xu_formatter_maps_addr(uintptr_t pc, xdl_info *info, char *buf, size_t buf_len) {
-  memset(info, 0, sizeof(xdl_info));
+static int xu_formatter_maps_addr(uintptr_t pc, xdl_info_t *info, char *buf, size_t buf_len) {
+  memset(info, 0, sizeof(xdl_info_t));
 
   FILE *fp = fopen("/proc/self/maps", "r");
   if (NULL == fp) return 0;
@@ -76,9 +76,9 @@ void xu_formatter_print(uintptr_t *frames, size_t frames_sz, const char *prefix,
   if (NULL == prefix) prefix = "";
 
   void *cache = NULL;
-  xdl_info info;
+  xdl_info_t info;
   for (size_t i = 0; i < frames_sz; i++) {
-    memset(&info, 0, sizeof(xdl_info));
+    memset(&info, 0, sizeof(xdl_info_t));
     int r = 0;
 
     if (0 != frames[i]) {

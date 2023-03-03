@@ -1,6 +1,9 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+}
 
 android {
+    namespace 'io.github.hexhacking.xunwind'
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     ndkVersion rootProject.ext.ndkVersion
@@ -40,6 +43,7 @@ android {
     buildFeatures {
         prefab true
         prefabPublishing true
+        buildConfig false
     }
     prefab {
         xunwind {
@@ -49,10 +53,16 @@ android {
     packagingOptions {
         exclude '**/libxdl.so'
     }
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 dependencies {
-    implementation 'io.hexhacking:xdl:1.1.5'
+    implementation 'io.github.hexhacking:xdl:2.0.0'
 }
 
 apply from: rootProject.file('gradle/check.gradle')

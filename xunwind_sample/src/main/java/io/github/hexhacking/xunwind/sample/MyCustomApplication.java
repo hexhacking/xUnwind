@@ -1,9 +1,9 @@
-package io.hexhacking.xunwind.sample;
+package io.github.hexhacking.xunwind.sample;
 
 import android.app.Application;
 import android.content.Context;
 
-import io.hexhacking.xunwind.XUnwind;
+import io.github.hexhacking.xunwind.XUnwind;
 
 public class MyCustomApplication extends Application {
 

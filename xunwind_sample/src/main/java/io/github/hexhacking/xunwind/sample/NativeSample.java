@@ -1,4 +1,4 @@
-package io.hexhacking.xunwind.sample;
+package io.github.hexhacking.xunwind.sample;
 
 public class NativeSample {
     public static void testCfi(boolean remoteUnwind) {

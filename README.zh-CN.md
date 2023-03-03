@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)
 ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
-![](https://img.shields.io/badge/release-1.1.1-red.svg?style=flat)
+![](https://img.shields.io/badge/release-2.0.0-red.svg?style=flat)
 ![](https://img.shields.io/badge/Android-4.1%20--%2013-blue.svg?style=flat)
 ![](https://img.shields.io/badge/arch-armeabi--v7a%20%7C%20arm64--v8a%20%7C%20x86%20%7C%20x86__64-blue.svg?style=flat)
 
@@ -40,14 +40,6 @@ xUnwind 是一个安卓 native 栈回溯方案的集合。
 xUnwind 发布在 [Maven Central](https://search.maven.org/) 上。为了使用 [native 依赖项](https://developer.android.com/studio/build/native-dependencies)，xUnwind 使用了从 [Android Gradle Plugin 4.0+](https://developer.android.com/studio/releases/gradle-plugin?buildsystem=cmake#native-dependencies) 开始支持的 [Prefab](https://google.github.io/prefab/) 包格式。
 
 ```Gradle
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
-```
-
-```Gradle
 android {
     buildFeatures {
         prefab true
@@ -55,8 +47,23 @@ android {
 }
 
 dependencies {
-    implementation 'io.hexhacking:xunwind:1.1.1'
+    implementation 'io.github.hexhacking:xunwind:2.0.0'
 }
+```
+
+**注意**：
+
+1. xUnwind 从版本 `2.0.0` 开始，group ID 从 `io.hexhacking` 改为 `io.github.hexhacking`。
+
+| 版本号范围          | group ID                 | artifact ID | 仓库 URL |
+|:---------------|:-------------------------|:------------|:----------------------------------------------------------|
+| [1.0.1, 1.1.1] | io.hexhacking            | xunwind     | [repo](https://repo1.maven.org/maven2/io/hexhacking/xunwind/) |
+| [2.0.0, )      | **io.github.hexhacking** | xunwind     | [repo](https://repo1.maven.org/maven2/io/github/hexhacking/xunwind/) |
+
+2. xUnwind 使用 [prefab package schema v2](https://github.com/google/prefab/releases/tag/v2.0.0)，它是从 [Android Gradle Plugin 7.1.0](https://developer.android.com/studio/releases/gradle-plugin?buildsystem=cmake#7-1-0) 开始作为默认配置的。如果你使用的是 Android Gradle Plugin 7.1.0 之前的版本，请在 `gradle.properties` 中加入以下配置：
+
+```
+android.prefabVersion=2.0.0
 ```
 
 ### 2. 在 CMakeLists.txt 或 Android.mk 中增加依赖
@@ -176,7 +183,7 @@ char *xunwind_frames_get(uintptr_t* frames, size_t frames_sz, const char *prefix
 ## Java API
 
 ```Java
-import io.hexhacking.xunwind.XUnwind;
+import io.github.hexhacking.xunwind.XUnwind;
 ```
 
 ### 1. 初始化

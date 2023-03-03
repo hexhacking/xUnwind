@@ -1,4 +1,4 @@
-// Copyright (c) 2020-2021 HexHacking Team
+// Copyright (c) 2020-2023 HexHacking Team
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +34,7 @@
 #include "xunwind.h"
 
 #define XU_JNI_VERSION    JNI_VERSION_1_6
-#define XU_JNI_CLASS_NAME "io/hexhacking/xunwind/XUnwind"
+#define XU_JNI_CLASS_NAME "io/github/hexhacking/xunwind/XUnwind"
 
 static void xu_jni_log(JNIEnv *env, jobject thiz, jint pid, jint tid, jstring logtag, jint priority,
                        jstring prefix) {

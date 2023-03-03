@@ -1,11 +1,11 @@
-package io.hexhacking.xunwind.sample;
+package io.github.hexhacking.xunwind.sample;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
-import io.hexhacking.xunwind.XUnwind;
+import io.github.hexhacking.xunwind.XUnwind;
 
 public class MyService extends Service {
 

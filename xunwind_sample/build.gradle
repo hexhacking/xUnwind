@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'io.github.hexhacking.xunwind.sample'
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     ndkVersion rootProject.ext.ndkVersion
     defaultConfig {
-        applicationId "io.hexhacking.xunwind.sample"
+        applicationId "io.github.hexhacking.xunwind.sample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -16,9 +17,6 @@ android {
         externalNativeBuild {
             cmake {
                 abiFilters rootProject.ext.abiFilters.split(",")
-                if (rootProject.ext.dependencyOnLocalLibrary) {
-                    arguments "-DDEPENDENCY_ON_LOCAL_LIBRARY=ON"
-                }
             }
         }
     }
@@ -54,14 +52,14 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     if (rootProject.ext.dependencyOnLocalLibrary) {
         implementation project(':xunwind')
     } else {
-        implementation 'io.hexhacking:xunwind:1.1.1'
+        implementation 'io.github.hexhacking:xunwind:' + rootProject.ext.xunwindVersion
     }
 }
 

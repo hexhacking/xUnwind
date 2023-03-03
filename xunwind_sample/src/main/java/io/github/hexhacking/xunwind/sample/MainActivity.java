@@ -1,4 +1,4 @@
-package io.hexhacking.xunwind.sample;
+package io.github.hexhacking.xunwind.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.os.Process;
 
-import io.hexhacking.xunwind.XUnwind;
+import io.github.hexhacking.xunwind.XUnwind;
 
 public class MainActivity extends AppCompatActivity {
 

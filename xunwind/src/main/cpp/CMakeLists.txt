@@ -15,5 +15,5 @@ target_compile_options(xunwind PUBLIC -fsanitize=address -fno-omit-frame-pointer
 target_link_options(xunwind PUBLIC -fsanitize=address)
 else()
 target_compile_options(xunwind PUBLIC -Oz -flto -faddrsig -ffunction-sections -fdata-sections)
-target_link_options(xunwind PUBLIC -Oz -flto -Wl,--icf=all -Wl,-mllvm,--enable-machine-outliner=always -Wl,--exclude-libs,ALL -Wl,--gc-sections -Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/xunwind.map.txt)
+target_link_options(xunwind PUBLIC -Oz -flto -Wl,--icf=all -Wl,--exclude-libs,ALL -Wl,--gc-sections -Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/xunwind.map.txt)
 endif()

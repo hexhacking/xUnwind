@@ -12,7 +12,7 @@
 #include "xunwind.h"
 
 #define SAMPLE_JNI_VERSION    JNI_VERSION_1_6
-#define SAMPLE_JNI_CLASS_NAME "io/hexhacking/xunwind/sample/NativeSample"
+#define SAMPLE_JNI_CLASS_NAME "io/github/hexhacking/xunwind/sample/NativeSample"
 #define SAMPLE_LOG_TAG        "xunwind_tag"
 #define SAMPLE_LOG_PRIORITY   ANDROID_LOG_INFO
 

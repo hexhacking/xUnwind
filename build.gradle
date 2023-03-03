@@ -1,6 +1,6 @@
 plugins {
-    id 'com.android.application' version '7.2.2' apply false
-    id 'com.android.library' version '7.2.2' apply false
+    id 'com.android.application' version '7.4.2' apply false
+    id 'com.android.library' version '7.4.2' apply false
 }
 
 task clean(type: Delete) {
@@ -11,17 +11,18 @@ ext {
     minSdkVersion = 16
     compileSdkVersion = 33
     targetSdkVersion = 33
-    buildToolsVersion = '33.0.0'
+    buildToolsVersion = '33.0.2'
     javaVersion = JavaVersion.VERSION_1_7
     ndkVersion = "23.2.8568313"
     cmakeVersion = "3.22.1"
     abiFilters = "armeabi-v7a,arm64-v8a,x86,x86_64"
     useASAN = false
     dependencyOnLocalLibrary = true
+    xunwindVersion = "2.0.0"
 
-    POM_GROUP_ID = "io.hexhacking"
+    POM_GROUP_ID = "io.github.hexhacking"
     POM_ARTIFACT_ID = "xunwind"
-    POM_VERSION_NAME = "1.1.1"
+    POM_VERSION_NAME = "2.0.0"
 
     POM_NAME = "xUnwind Android Lib"
     POM_DESCRIPTION = "xUnwind is a collection of Android native stack unwinding solutions."
