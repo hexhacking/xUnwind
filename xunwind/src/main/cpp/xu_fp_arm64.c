@@ -217,9 +217,15 @@ static inline uintptr_t xu_fp_clear_pac_bits(uintptr_t addr) {
 static bool xu_fp_append_frame(uintptr_t *frames, size_t frames_cap, size_t *frames_sz, uintptr_t addr) {
   if (*frames_sz >= frames_cap) return false;
 
-  frames[*frames_sz] = xu_fp_clear_pac_bits(addr);
+  uintptr_t addr_clear = xu_fp_clear_pac_bits(addr);
+
+  if (addr_clear == addr)
+    XU_LOG("xu_fp_unwind: append frame #%02zu %p", *frames_sz, (void *)addr_clear);
+  else
+    XU_LOG("xu_fp_unwind: append frame #%02zu %p (with PAC: %p)", *frames_sz, (void *)addr_clear, (void *)addr);
+
+  frames[*frames_sz] = addr_clear;
   *frames_sz += 1;
-  XU_LOG("xu_fp_unwind: append frame #%02zu %p", *frames_sz - 1, (void *)frames[*frames_sz - 1]);
 
   return *frames_sz >= frames_cap ? false : true;
 }
