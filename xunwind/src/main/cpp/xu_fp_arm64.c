@@ -208,10 +208,16 @@ static xu_fp_sigframe_t *xu_fp_find_sigframe_addr(uintptr_t stack_low, uintptr_t
 
 #endif
 
+static inline uintptr_t xu_fp_clear_pac_bits(uintptr_t addr) {
+  register uintptr_t x30 __asm__("x30") = addr;
+  __asm__("xpaclri" : "+r"(x30));
+  return x30;
+}
+
 static bool xu_fp_append_frame(uintptr_t *frames, size_t frames_cap, size_t *frames_sz, uintptr_t addr) {
   if (*frames_sz >= frames_cap) return false;
 
-  frames[*frames_sz] = addr & 0x7FFFFFFFFFULL;  // clear PAC bits
+  frames[*frames_sz] = xu_fp_clear_pac_bits(addr);
   *frames_sz += 1;
   XU_LOG("xu_fp_unwind: append frame #%02zu %p", *frames_sz - 1, (void *)frames[*frames_sz - 1]);
 
