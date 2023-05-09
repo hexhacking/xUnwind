@@ -222,7 +222,8 @@ static bool xu_fp_append_frame(uintptr_t *frames, size_t frames_cap, size_t *fra
   if (addr_clear == addr)
     XU_LOG("xu_fp_unwind: append frame #%02zu %p", *frames_sz, (void *)addr_clear);
   else
-    XU_LOG("xu_fp_unwind: append frame #%02zu %p (with PAC: %p)", *frames_sz, (void *)addr_clear, (void *)addr);
+    XU_LOG("xu_fp_unwind: append frame #%02zu %p (with PAC: %p)", *frames_sz, (void *)addr_clear,
+           (void *)addr);
 
   frames[*frames_sz] = addr_clear;
   *frames_sz += 1;
